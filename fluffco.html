@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Fluffco™ | The Ultimate Cooling Sleep Pillow</title>
+    <style>
+        :root {
+            --brand-dark: #1A365D;
+            --brand-light: #EBF8FF;
+            --cta-color: #DD6B20;
+            --cta-hover: #C05621;
+            --text-main: #2D3748;
+            --text-muted: #718096;
+            --bg-gray: #F7FAFC;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #ffffff;
+            padding-bottom: 70px; /* Space for mobile sticky button */
+        }
+
+        /* Announcement Bar */
+        .announcement {
+            background-color: var(--brand-dark);
+            color: white;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Header */
+        header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #E2E8F0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--brand-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section (Product Buy Area) */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            gap: 40px;
+        }
+        .hero-images {
+            flex: 1 1 400px;
+        }
+        .main-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 15px;
+        }
+        .hero-content {
+            flex: 1 1 400px;
+        }
+        .reviews-badge {
+            color: #D69E2E;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .hero-title {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: var(--brand-dark);
+        }
+        .price-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .current-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--cta-color);
+            margin-right: 15px;
+        }
+        .old-price {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+        .savings-badge {
+            margin-left: 15px;
+            background-color: #FED7D7;
+            color: #C53030;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .benefit-bullets {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        .benefit-bullets li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 1.05rem;
+        }
+        .benefit-bullets li::before {
+            content: '✓';
+            color: #38A169;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            background-color: var(--cta-color);
+            color: white;
+            text-align: center;
+            padding: 18px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 14px rgba(221, 107, 32, 0.3);
+        }
+        .btn:hover { background-color: var(--cta-hover); }
+        .guarantee {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Problem / Solution Section */
+        .story-section {
+            background-color: var(--bg-gray);
+            padding: 60px 20px;
+            margin-top: 50px;
+        }
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .story-content h2 {
+            font-size: 2rem;
+            color: var(--brand-dark);
+            margin-bottom: 20px;
+        }
+        .story-content p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: #4A5568;
+        }
+
+        /* Feature Grid */
+        .feature-grid-section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .grid-header {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--brand-dark);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .grid-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            background: white;
+        }
+        .grid-item h3 { margin-bottom: 10px; color: var(--brand-dark); }
+        .grid-item p { color: var(--text-muted); font-size: 0.95rem; }
+        .grid-icon { font-size: 2.5rem; margin-bottom: 15px; }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 20px;
+            background-color: var(--brand-light);
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: white;
+            margin-bottom: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .faq-question { font-weight: bold; color: var(--brand-dark); margin-bottom: 5px; }
+        .faq-answer { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Footer */
+        footer {
+            background-color: #1A202C;
+            color: #A0AEC0;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.85rem;
+        }
+        footer a { color: #A0AEC0; margin: 0 10px; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .disclaimer { margin-top: 20px; font-size: 0.75rem; color: #718096; }
+
+        /* Mobile Sticky CTA */
+        .mobile-sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 10px 20px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 1000;
+        }
+        .mobile-sticky-cta .btn { padding: 15px; font-size: 1.1rem; }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; gap: 20px; margin-top: 15px; }
+            .hero-title { font-size: 1.8rem; }
+            .story-content h2, .grid-header { font-size: 1.6rem; }
+            .mobile-sticky-cta { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="announcement">
+        🎉 FLASH SALE: Get 50% Off + Free Shipping Today Only!
+    </div>
+
+    <header>
+        <div class="logo">ZEN FLUFFCO.</div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-images">
+                <img src="https://m.media-amazon.com/images/I/711Uzr0eesL._AC_UF894,1000_QL80_.jpg" alt="Zen Fluffco Pillow" class="main-image">
+                </div>
+
+            <div class="hero-content">
+                <div class="reviews-badge">★★★★★ 4.9/5 (12,400+ Reviews)</div>
+                <h1 class="hero-title">The Adjustable Cooling Pillow for Deep, Pain-Free Sleep</h1>
+                
+                <div class="price-container">
+                    <span class="current-price">$49.99</span>
+                    <span class="old-price">$99.99</span>
+                    <span class="savings-badge">Save 50%</span>
+                </div>
+
+                <ul class="benefit-bullets">
+                    <li><strong>Adjustable Fill:</strong> Add or remove fluff to find your perfect height and neck support.</li>
+                    <li><strong>Ice-Silk Cooling Tech:</strong> Draws heat away from your head so you never wake up sweaty.</li>
+                    <li><strong>Hypoallergenic & Vegan:</strong> Mimics the feel of luxury goose down without the allergies.</li>
+                    <li><strong>Machine Washable:</strong> Never goes flat or clumpy, even after 50+ washes.</li>
+                </ul>
+
+                <a href="https://www.amazon.in/FluffCo-Stomach-Sleeper-Feather-Pillows/dp/B09XQWXB9B" class="btn">Add to Cart - Save 50%</a>
+                
+                <div class="guarantee">
+                    <span>🚚 Free Shipping</span>
+                    <span>🛡️ 30-Night Sleep Trial</span>
+                    <span>💳 Secure Checkout</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="story-section">
+        <div class="story-content">
+            <h2>Stop Waking Up Exhausted and Sore</h2>
+            <p>Did you know that 80% of sleep issues are caused by using the wrong pillow? Standard memory foam is too hard and traps heat, while cheap cotton pillows flatten out in weeks, leaving your neck entirely unsupported.</p>
+            <p>The <strong>Zen Fluffco Pillow</strong> was engineered by sleep experts to bridge the gap. We combined premium, breathable micro-down alternative with an adjustable inner zipper. Whether you sleep on your side, back, or stomach, you can customize the loft to align your spine perfectly.</p>
+        </div>
+    </section>
+
+    <section class="feature-grid-section">
+        <h2 class="grid-header">Engineered for the Perfect Night</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <div class="grid-icon">❄️</div>
+                <h3>Always Cool to the Touch</h3>
+                <p>Our proprietary bamboo-blend outer shell promotes continuous airflow, ending the cycle of flipping to the "cool side" of the pillow.</p>
+            </div>
+            <div class="grid-item">
+                <div class="grid-icon">🔧</div>
+                <h3>Customizable Comfort</h3>
+                <p>Unzip the inner liner to add or remove our signature cloud-fill. Make it firm, medium, or soft—the choice is yours.</p>
+            </div>
+            <div class="grid-item">
+                <div class="grid-icon">☁️</div>
+                <h3>5-Star Hotel Feel</h3>
+                <p>Enjoy the plush, sink-in luxury of a high-end resort every single night, right in your own bedroom.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="grid-header">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How does the 30-Night Sleep Trial work?</div>
+                <div class="faq-answer">Sleep on it for 30 nights. If it doesn't give you the best sleep of your life, return it for a full refund, no questions asked.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is it safe for washing machines?</div>
+                <div class="faq-answer">Yes! Both the outer cover and the inner pillow can be machine washed on a cold, gentle cycle and tumble-dried on low.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How long does shipping take?</div>
+                <div class="faq-answer">All orders are processed within 24 hours. Standard free shipping takes 3-5 business days within the US.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="margin-bottom: 15px;">
+            <a href="#">Shop</a> | 
+            <a href="#">Contact Us</a> | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Refund Policy</a>
+        </div>
+        <p>&copy; 2026 Zen Fluffco. All rights reserved.</p>
+        <p class="disclaimer">This site is not a part of the Facebook website or Facebook Inc. Additionally, This site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+    </footer>
+
+    <div class="mobile-sticky-cta">
+        <a href="https://www.amazon.in/FluffCo-Stomach-Sleeper-Feather-Pillows/dp/B09XQWXB9B" class="btn">Add to Cart - Save 50%</a>
+    </div>
+
+</body>
+</html>
